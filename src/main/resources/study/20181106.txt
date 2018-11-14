@@ -1,2 +1,2 @@
-mybatis 注解版本
+mybatis 注解版本(此版本)
 xml版本
