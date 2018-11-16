@@ -1,6 +1,7 @@
 package com.windows3.controller;
 
 import com.windows3.cms.dao.UserMapperCms;
+import com.windows3.cms.service.UserServiceCms;
 import com.windows3.cms2.dao.UserMapperCms2;
 import com.windows3.entity.User;
 import com.windows3.mapper.UserMapper;
@@ -19,6 +20,8 @@ public class UserController {
     private UserMapperCms userMapperCms;
     @Autowired
     private UserMapperCms2 userMapperCms2;
+    @Autowired
+    private UserServiceCms userServiceCms;
 
     @RequestMapping("/findByName")
     public User findByName(String name) {
@@ -42,7 +45,7 @@ public class UserController {
     }
     @RequestMapping("/insertCms")
     public String insertCms(String name, Integer age) {
-        userMapperCms.insert(name,age);
+        userServiceCms.insertCms(name, age);
         return "success";
     }@RequestMapping("/insertCms2")
     public String insertCms2(String name, Integer age) {
