@@ -5,6 +5,7 @@ import com.windows3.cms.service.UserServiceCms;
 import com.windows3.cms2.dao.UserMapperCms2;
 import com.windows3.entity.User;
 import com.windows3.mapper.UserMapper;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class UserController {
+
+    //    log4j代码
+    private static Logger log = Logger.getLogger(UserController.class);
     @Autowired
     private UserMapper userMapper;
     @Autowired
@@ -31,6 +35,7 @@ public class UserController {
 
     @RequestMapping("/findByNameCms")
     public User findByNameCms(String name) {
+        log.info("####findByNameCms()####name:" + name);
         return userMapperCms.findByName(name);
     }
 
@@ -41,17 +46,20 @@ public class UserController {
 
     @RequestMapping("/insert")
     public String insert(String name, Integer age) {
-        userMapper.insert(name,age);
+        userMapper.insert(name, age);
         return "success";
     }
+
     @RequestMapping("/insertCms")
     public String insertCms(String name, Integer age) {
         userServiceCms.insertCms(name, age);
         userMapperCms2.insert(name, age);
         return "success";
-    }@RequestMapping("/insertCms2")
+    }
+
+    @RequestMapping("/insertCms2")
     public String insertCms2(String name, Integer age) {
-        userMapperCms2.insert(name,age);
+        userMapperCms2.insert(name, age);
         return "success";
     }
 }

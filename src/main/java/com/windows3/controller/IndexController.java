@@ -3,11 +3,9 @@ package com.windows3.controller;
 import com.windows3.cms.dao.UserMapperCms;
 import com.windows3.cms.service.UserServiceCms;
 import com.windows3.cms2.dao.UserMapperCms2;
-import com.windows3.entity.User;
 import com.windows3.mapper.UserMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class IndexController {
+//    log4j代码
+    private static Logger log = Logger.getLogger(IndexController.class);
 
 
     @Autowired
