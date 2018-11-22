@@ -23,6 +23,7 @@ public class UserController {
     @Autowired
     private UserServiceCms userServiceCms;
 
+
     @RequestMapping("/findByName")
     public User findByName(String name) {
         return userMapper.findByName(name);
@@ -46,6 +47,7 @@ public class UserController {
     @RequestMapping("/insertCms")
     public String insertCms(String name, Integer age) {
         userServiceCms.insertCms(name, age);
+        userMapperCms2.insert(name, age);
         return "success";
     }@RequestMapping("/insertCms2")
     public String insertCms2(String name, Integer age) {
