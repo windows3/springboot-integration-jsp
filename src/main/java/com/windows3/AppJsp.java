@@ -14,7 +14,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableConfigurationProperties(value = { DBConfig1.class, DBConfig2.class })
 // @ComponentScan("com.itmayiedu.controller")
 @MapperScan(basePackages = { "com.windows3.mapper" })
-@EnableAsync
+@EnableAsync//异步执行
 @EnableScheduling
 // @EnableAutoConfiguration
 public class AppJsp {

@@ -13,7 +13,7 @@ import java.util.Date;
  *       2.不好管理
  */
 
-@Component
+//@Component
 public class ScheduledTasks {
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     @Scheduled(fixedRate = 1000)

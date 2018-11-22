@@ -3,6 +3,7 @@ package com.windows3.controller;
 import com.windows3.cms.dao.UserMapperCms;
 import com.windows3.cms.service.UserServiceCms;
 import com.windows3.cms2.dao.UserMapperCms2;
+import com.windows3.cms2.service.UserServiceCms2;
 import com.windows3.mapper.UserMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,8 @@ public class IndexController {
     @Autowired
     private UserServiceCms userServiceTest01;
 
+    @Autowired
+    private UserServiceCms2 userServiceTest02;
     @RequestMapping("/index")
     public String index() {
         return "index";
@@ -43,5 +46,13 @@ public class IndexController {
         return "success";
     }
 
+    @ResponseBody
+    @RequestMapping("/sendMsg")
+    public String sendMsg(){
+        System.out.println("####1####");
+        userServiceTest02.sendMsg();
+        System.out.println("####2####");
+        return "success";
+    }
 
 }
