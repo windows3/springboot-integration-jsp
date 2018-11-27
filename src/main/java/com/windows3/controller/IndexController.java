@@ -7,6 +7,7 @@ import com.windows3.cms2.service.UserServiceCms2;
 import com.windows3.mapper.UserMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,6 +32,11 @@ public class IndexController {
 
     @Autowired
     private UserServiceCms2 userServiceTest02;
+
+    @Value("windows3")
+    private  String windows3;
+
+
     @RequestMapping("/index")
     public String index() {
         return "index";
@@ -53,6 +59,13 @@ public class IndexController {
         userServiceTest02.sendMsg();
         System.out.println("####2####");
         return "success";
+    }
+
+    @ResponseBody
+    @RequestMapping("/getWindows3")
+    public String getWindows3(){
+
+        return windows3;
     }
 
 }
