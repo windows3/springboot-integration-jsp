@@ -33,7 +33,7 @@ public class IndexController {
     @Autowired
     private UserServiceCms2 userServiceTest02;
 
-    @Value("windows3")
+    @Value("${windows3}")
     private  String windows3;
 
 
